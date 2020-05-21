@@ -14,7 +14,8 @@ def ml_class():
     We are going to instantiate the object with the same directories in an attempt to ensure things
     don't suddenly change.  This is brittle but will work for now
     """
-    DATA_DIRECTORY = "../../model_data"
+    DATA_DIRECTORY = "model_data"
+    print(os.getcwd())
     COLUMNS_PATH = os.path.join(DATA_DIRECTORY, "bow-columns.p")
     MODEL_PATH = os.path.join(DATA_DIRECTORY, "bow_xgb.joblib")
     VOCAB_PATH = os.path.join(DATA_DIRECTORY, "vocab.p")
