@@ -39,9 +39,11 @@ class Greetings(commands.Cog):
         """Says hello"""
         member = member or ctx.author
         if self._last_member is None or self._last_member.id != member.id:
-            await ctx.send('Well hello there Mr. {0.name}~'.format(member))
+            await ctx.send("Well hello there Mr. {0.name}~".format(member))
         else:
-            await ctx.send('Welcome back Mr {0.name}... You having a good day?'.format(member))
+            await ctx.send(
+                "Welcome back Mr {0.name}... You having a good day?".format(member)
+            )
         self._last_member = member
 
     @commands.command()
@@ -71,9 +73,11 @@ class MessageMonitor(commands.Cog):
 
         Returns: None
         """
-        await message.author.send(f"You have a new infraction bringing you up to {infractions} in "
-                                  f"{message.channel.guild.name} Continued infractions will get you kicked "
-                                  f"from the server.")
+        await message.author.send(
+            f"You have a new infraction bringing you up to {infractions} in "
+            f"{message.channel.guild.name} Continued infractions will get you kicked "
+            f"from the server."
+        )
 
     async def kick_explain(self, message, infractions):
         """
@@ -85,8 +89,10 @@ class MessageMonitor(commands.Cog):
         Returns:
 
         """
-        await message.author.send(f"Oh hambergers! You {infractions} infractions in {message.channel.guild.name} "
-                                  f"and have been kicked.")
+        await message.author.send(
+            f"Oh hambergers! You {infractions} infractions in {message.channel.guild.name} "
+            f"and have been kicked."
+        )
         await message.author.kick(reason="You have been removed.")
 
     async def wipe_message(self, message):
@@ -99,7 +105,9 @@ class MessageMonitor(commands.Cog):
 
         """
         await message.delete()
-        await message.channel.send(f"That is not very nice language {message.author.name}. Deleting.")
+        await message.channel.send(
+            f"That is not very nice language {message.author.name}. Deleting."
+        )
 
     @commands.Cog.listener()
     async def on_message(self, message):
@@ -131,10 +139,14 @@ class Buttersbot(commands.Bot):
         self.add_cog(MessageMonitor(self))
 
     async def on_ready(self):
-        print('Logged on as', self.user.name)
+        print("Logged on as", self.user.name)
 
     async def on_command_error(self, ctx, error):
         if isinstance(error, CheckFailure):
-            await ctx.channel.send(f"Gee Wiz you can't do that, {ctx.message.author.name}")
+            await ctx.channel.send(
+                f"Gee Wiz you can't do that, {ctx.message.author.name}"
+            )
         else:
-            await ctx.channel.send(f"loo loo loo you broken the discord, {ctx.message.author.name}")
+            await ctx.channel.send(
+                f"loo loo loo you broken the discord, {ctx.message.author.name}"
+            )

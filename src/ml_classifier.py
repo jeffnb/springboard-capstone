@@ -5,17 +5,32 @@ import re
 import os
 import contractions
 import joblib
-from gensim.parsing import strip_non_alphanum, strip_numeric, remove_stopwords, stem_text
+from gensim.parsing import (
+    strip_non_alphanum,
+    strip_numeric,
+    remove_stopwords,
+    stem_text,
+)
 from sklearn.feature_extraction.text import CountVectorizer
 
 from src import text_preprocessing
 from src.core_processor import SpeechClass
-from src.text_preprocessing import remove_accented_chars, remove_link, remove_discord_mention, remove_punc, strip_short2
+from src.text_preprocessing import (
+    remove_accented_chars,
+    remove_link,
+    remove_discord_mention,
+    remove_punc,
+    strip_short2,
+)
 
 
 class MLClassifier:
 
-    predict_map = {0: SpeechClass.HATE_SPEECH, 1: SpeechClass.OFFENSIVE, 2: SpeechClass.CLEAN}
+    predict_map = {
+        0: SpeechClass.HATE_SPEECH,
+        1: SpeechClass.OFFENSIVE,
+        2: SpeechClass.CLEAN,
+    }
 
     def __init__(self, model_path: str, vocab_path: str, column_path: str):
         """
@@ -54,14 +69,26 @@ class MLClassifier:
 
         return self.predict_map[prediction]
 
-    def preprocess_message(self, message:str) -> pd.DataFrame:
+    def preprocess_message(self, message: str) -> pd.DataFrame:
 
         globa_process_list = [str.lower, contractions.fix, remove_accented_chars]
-        process_list = [str.lower, str.strip, remove_link, remove_discord_mention, remove_punc,
-                        strip_non_alphanum, strip_numeric, strip_short2, remove_stopwords, stem_text]
+        process_list = [
+            str.lower,
+            str.strip,
+            remove_link,
+            remove_discord_mention,
+            remove_punc,
+            strip_non_alphanum,
+            strip_numeric,
+            strip_short2,
+            remove_stopwords,
+            stem_text,
+        ]
 
-        tokenized_message = text_preprocessing.preprocess_message(message, globa_process_list, process_list)
-        processed = ' '.join(tokenized_message)
+        tokenized_message = text_preprocessing.preprocess_message(
+            message, globa_process_list, process_list
+        )
+        processed = " ".join(tokenized_message)
         cv_matrix = self._vectorize_message(processed)
         return self._matrix_to_dataframe(cv_matrix)
 
@@ -73,7 +100,7 @@ class MLClassifier:
         Returns:matrix for the count vectors
 
         """
-        cv = CountVectorizer(min_df=0., max_df=1., vocabulary=self.vocab_words)
+        cv = CountVectorizer(min_df=0.0, max_df=1.0, vocabulary=self.vocab_words)
         cv_matrix = cv.fit_transform([message])
         return cv_matrix.toarray()
 
@@ -86,4 +113,3 @@ class MLClassifier:
         """
 
         return pd.DataFrame(matrix, columns=self.columns[3:])
-

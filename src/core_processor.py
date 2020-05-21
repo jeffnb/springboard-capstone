@@ -44,7 +44,7 @@ class CoreProcessor:
         result = self.classify_message(message)
 
         issue = False
-        if self.monitor_level == 1 and result == SpeechClass.HATE_SPEECH :
+        if self.monitor_level == 1 and result == SpeechClass.HATE_SPEECH:
             issue = True
         elif self.monitor_level == 2 and result.value > 0:
             issue = True
@@ -97,4 +97,3 @@ class CoreProcessor:
 
         """
         return self.offending[identifier] > self.infraction_limit
-

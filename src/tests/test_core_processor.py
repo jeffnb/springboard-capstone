@@ -49,13 +49,17 @@ def test_classify_message(processor):
     classifier_mock.classify_message.assert_called_once_with(message)
 
 
-@pytest.mark.parametrize("level,result,expected",
-                         [(0, SpeechClass.HATE_SPEECH, False),
-                          (1, SpeechClass.HATE_SPEECH, True),
-                          (2, SpeechClass.OFFENSIVE, True),
-                          (2, SpeechClass.HATE_SPEECH, True),
-                          (2, SpeechClass.CLEAN, False),
-                          (1, SpeechClass.OFFENSIVE, False)])
+@pytest.mark.parametrize(
+    "level,result,expected",
+    [
+        (0, SpeechClass.HATE_SPEECH, False),
+        (1, SpeechClass.HATE_SPEECH, True),
+        (2, SpeechClass.OFFENSIVE, True),
+        (2, SpeechClass.HATE_SPEECH, True),
+        (2, SpeechClass.CLEAN, False),
+        (1, SpeechClass.OFFENSIVE, False),
+    ],
+)
 def test_evaluate_message_no_monitor(processor, level, result, expected):
     processor.classify_message = MagicMock()
     processor.classify_message.return_value = result
@@ -63,5 +67,3 @@ def test_evaluate_message_no_monitor(processor, level, result, expected):
     processor.monitor_level = level
 
     assert processor.evaluate_message("HELLO") == expected
-
-

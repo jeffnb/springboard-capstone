@@ -21,6 +21,7 @@ def ml_class():
 
     return MLClassifier(MODEL_PATH, VOCAB_PATH, COLUMNS_PATH)
 
+
 def test_setup(ml_class):
     assert len(ml_class.vocab_words) > 5000
     assert len(ml_class.columns) > 5000
@@ -46,11 +47,3 @@ def test_classify_messge_no_mock(ml_class):
 def test_vectorize_message(ml_class):
     matrix = ml_class._vectorize_message("HELLO how are you")
     assert matrix.shape == (1, len(ml_class.vocab_words))
-
-
-
-
-
-
-
-
