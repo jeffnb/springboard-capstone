@@ -61,6 +61,9 @@ def test_classify_message(processor):
     ],
 )
 def test_evaluate_message_no_monitor(processor, level, result, expected):
+    """
+    This should test all of the usecase logic
+    """
     processor.classify_message = MagicMock()
     processor.classify_message.return_value = result
 
