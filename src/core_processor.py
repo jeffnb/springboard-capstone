@@ -75,7 +75,6 @@ class CoreProcessor:
         self.add_infraction(identifier)
         return self.should_take_action(identifier)
 
-
     def add_infraction(self, identifier: str) -> int:
         """
         Takes the identifer and increments in the dict for the infractions and returns the number
@@ -86,7 +85,6 @@ class CoreProcessor:
         """
 
         self.offending[identifier] += 1
-
         return self.offending[identifier]
 
     def should_take_action(self, identifier: str) -> bool:
