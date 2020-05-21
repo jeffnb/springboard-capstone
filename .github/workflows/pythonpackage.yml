@@ -28,9 +28,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install pytest black
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Setting path hopefully
+      run: |
+        echo "::set-env name=PYTHONPATH::/home/runner/work/springboard-capstone/springboard-capstone/"
     - name: Test with pytest
       run: |
-        echo "::set-env name=PYTHONPATH::/home/runner/work/springboard-capstone/springboard-capstone/" 
         pytest
     - name: Scan with black
       run: |
