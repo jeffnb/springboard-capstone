@@ -121,8 +121,8 @@ class MessageMonitor(commands.Cog):
 
             identifier = self.generate_identifier(message)
 
-            count = processor.add_infraction(identifier)
-            if processor.should_take_action(identifier):
+            count = self.processor.add_infraction(identifier)
+            if self.processor.should_take_action(identifier):
                 await self.kick_explain(message, count)
             else:
                 await self.warn_dm(message, count)
