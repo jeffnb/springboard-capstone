@@ -19,6 +19,7 @@ if __name__ == "__main__":
     MODEL_PATH = os.path.join(DATA_DIRECTORY, "bow_xgb.joblib")
     VOCAB_PATH = os.path.join(DATA_DIRECTORY, "vocab.p")
     INFRACTION_LIMIT = 3
+    # 0 for no montoring, 1 for hate speech, 2 for anything offensive
     MONITOR_LEVEL = 2
 
     ml_classifier = MLClassifier(MODEL_PATH, VOCAB_PATH, COLUMNS_PATH)
