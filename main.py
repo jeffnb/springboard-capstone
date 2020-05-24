@@ -9,10 +9,7 @@ from src.ml_classifier import MLClassifier
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
-    handlers=[
-        logging.FileHandler("buttersbot.log"),
-        logging.StreamHandler(sys.stdout)
-    ]
+    handlers=[logging.FileHandler("buttersbot.log"), logging.StreamHandler(sys.stdout)],
 )
 
 if __name__ == "__main__":

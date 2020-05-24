@@ -12,6 +12,7 @@ from discord.ext.commands import CheckFailure
 
 logger = logging.getLogger(__name__)
 
+
 def is_administrator(ctx):
     """
     checks if the user has administrative privs in the room
