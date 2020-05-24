@@ -2,6 +2,7 @@
 This layout is strange but discord.py seems to really want a more functional design
 newer top layer will be needed to determine when this file is imported
 """
+import logging
 from collections import defaultdict
 import os
 
@@ -9,6 +10,7 @@ import discord
 from discord.ext import commands
 from discord.ext.commands import CheckFailure
 
+logger = logging.getLogger(__name__)
 
 def is_administrator(ctx):
     """
@@ -139,7 +141,7 @@ class Buttersbot(commands.Bot):
         self.add_cog(MessageMonitor(self))
 
     async def on_ready(self):
-        print("Logged on as", self.user.name)
+        logger.info(f"Logged on as {self.user.name}")
 
     async def on_command_error(self, ctx, error):
         if isinstance(error, CheckFailure):

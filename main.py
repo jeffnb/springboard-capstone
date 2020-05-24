@@ -1,10 +1,22 @@
 import os
+import logging
+import sys
 
 from src.buttersbot import Buttersbot
 from src.core_processor import CoreProcessor
 from src.ml_classifier import MLClassifier
 
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[
+        logging.FileHandler("buttersbot.log"),
+        logging.StreamHandler(sys.stdout)
+    ]
+)
+
 if __name__ == "__main__":
+
     DATA_DIRECTORY = "model_data"
     COLUMNS_PATH = os.path.join(DATA_DIRECTORY, "bow-columns.p")
     MODEL_PATH = os.path.join(DATA_DIRECTORY, "bow_xgb.joblib")
