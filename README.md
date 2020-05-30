@@ -9,8 +9,8 @@ The repo may contain obscene speech and possibly even racial slurs.  These are i
 
 ## What is here
 In this repository:
-* Capstone Proposal: Original document describing the project
-* Capstone Summary: Full summary of what was tried and explanation to the short comings of the project.
+* [Capstone Proposal](https://github.com/jeffnb/springboard-capstone/blob/master/Capstone%20Proposal%20-%20Chat%20Moderator.pdf): Original document describing the project
+* [Capstone Summary](https://github.com/jeffnb/springboard-capstone/blob/master/Chatbot%20Development%20Summary.pdf): Full summary of what was tried and explanation to the short comings of the project.
 * All jupyter notebooks for the various protype experiments as well as training.  Key ones:
 ** [Capstone - Data Wrangling](https://github.com/jeffnb/springboard-capstone/blob/master/Capstone%20-%20Deep%20Learning.ipynb)
 ** [Capstone - PreProcessing](https://github.com/jeffnb/springboard-capstone/blob/master/Capstone%20-%20PreProcessing.ipynb)
