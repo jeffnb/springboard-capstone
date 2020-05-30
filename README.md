@@ -10,6 +10,7 @@ The repo may contain obscene speech and possibly even racial slurs.  These are i
 ## What is here
 In this repository:
 * Capstone Proposal: Original document describing the project
+* Capstone Summary: Full summary of what was tried and explanation to the short comings of the project.
 * All jupyter notebooks for the various protype experiments as well as training.  Key ones:
 ** [Capstone - Data Wrangling](https://github.com/jeffnb/springboard-capstone/blob/master/Capstone%20-%20Deep%20Learning.ipynb)
 ** [Capstone - PreProcessing](https://github.com/jeffnb/springboard-capstone/blob/master/Capstone%20-%20PreProcessing.ipynb)
