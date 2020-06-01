@@ -12,11 +12,11 @@ In this repository:
 * [Capstone Proposal](https://github.com/jeffnb/springboard-capstone/blob/master/Capstone%20Proposal%20-%20Chat%20Moderator.pdf): Original document describing the project
 * [Capstone Summary](https://github.com/jeffnb/springboard-capstone/blob/master/Chatbot%20Development%20Summary.pdf): Full summary of what was tried and explanation to the short comings of the project.
 * All jupyter notebooks for the various protype experiments as well as training.  Key ones:
-** [Capstone - Data Wrangling](https://github.com/jeffnb/springboard-capstone/blob/master/Capstone%20-%20Deep%20Learning.ipynb)
-** [Capstone - PreProcessing](https://github.com/jeffnb/springboard-capstone/blob/master/Capstone%20-%20PreProcessing.ipynb)
-** [Capstone - Features](https://github.com/jeffnb/springboard-capstone/blob/master/Capstone%20-%20Features.ipynb)
-** [Capstone - Machine Learning](https://github.com/jeffnb/springboard-capstone/blob/master/Capstone%20-%20Machine%20Learning.ipynb)
-** [Capstone - Deep Learning](https://github.com/jeffnb/springboard-capstone/blob/master/Capstone%20-%20Deep%20Learning.ipynb)
+	* [Capstone - Data Wrangling](https://github.com/jeffnb/springboard-capstone/blob/master/Capstone%20-%20Deep%20Learning.ipynb)
+	* [Capstone - PreProcessing](https://github.com/jeffnb/springboard-capstone/blob/master/Capstone%20-%20PreProcessing.ipynb)
+	* [Capstone - Features](https://github.com/jeffnb/springboard-capstone/blob/master/Capstone%20-%20Features.ipynb)
+	* [Capstone - Machine Learning](https://github.com/jeffnb/springboard-capstone/blob/master/Capstone%20-%20Machine%20Learning.ipynb)
+	* [Capstone - Deep Learning](https://github.com/jeffnb/springboard-capstone/blob/master/Capstone%20-%20Deep%20Learning.ipynb)
 * main.py: Entry point to start application locally
 * src/: python source directory containing the chat bot
 * model_data/: data allowing chatbot machine learning classifier to run
@@ -42,6 +42,6 @@ Locally, the bot is straight foward to set up but some requirements such as xgbo
 ## What the bot does
 * The bot monitors all communication and runs each message through a trained machine learning classifier.  The classifier tries to determine if it is Hate Speech, Offensive or Clean.  Depending on the settings for the running bot it will determine if the message is an issue.  If it is then the bot will delete the message with a warning in the channel and also DM the user asking them to avoid it in the future.  On exceeding the `infraction_limit` they will be kicked from the server.
 * Commands:
-** `!ping`: Just says `pong`
-** `!hello`: greets back
+	* `!ping`: Just says `pong`
+	* `!hello`: greets back
 
