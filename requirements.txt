@@ -44,7 +44,7 @@ toml==0.10.1
 tqdm==4.46.0
 typed-ast==1.4.1
 Unidecode==1.1.1
-urllib3==1.25.9
+urllib3==1.26.5
 wcwidth==0.1.9
 websockets==8.1
 xgboost==1.0.2
